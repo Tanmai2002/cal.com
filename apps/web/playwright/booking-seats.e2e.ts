@@ -81,7 +81,7 @@ test.describe("Booking with Seats", () => {
         },
       ],
     });
-    await page.goto(`/${user.username}/${slug}`);
+    await page.goto(`/user/${user.username}/${slug}`);
 
     let bookingUrl = "";
 
@@ -91,7 +91,7 @@ test.describe("Booking with Seats", () => {
       await expect(page.locator("[data-testid=success-page]")).toBeVisible();
     });
     await test.step("Attendee #2 can book the same seated event time slot", async () => {
-      await page.goto(`/${user.username}/${slug}`);
+      await page.goto(`/user/${user.username}/${slug}`);
       await selectFirstAvailableTimeSlotNextMonth(page);
 
       await page.waitForURL(/bookingUid/);
@@ -100,7 +100,7 @@ test.describe("Booking with Seats", () => {
       await expect(page.locator("[data-testid=success-page]")).toBeVisible();
     });
     await test.step("Attendee #3 cannot click on the same seated event time slot", async () => {
-      await page.goto(`/${user.username}/${slug}`);
+      await page.goto(`/user/${user.username}/${slug}`);
 
       await page.click('[data-testid="incrementMonth"]');
 

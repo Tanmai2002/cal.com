@@ -56,7 +56,7 @@ test.describe("Stripe integration", () => {
     await user.setupEventWithPrice(eventType);
 
     // booking process without payment
-    await page.goto(`${user.username}/${eventType?.slug}`);
+    await page.goto(`user/${user.username}/${eventType?.slug}`);
     await selectFirstAvailableTimeSlotNextMonth(page);
     // --- fill form
     await page.fill('[name="name"]', "Stripe Stripeson");

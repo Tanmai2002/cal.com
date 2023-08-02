@@ -5,10 +5,10 @@ import prisma from "@calcom/prisma";
 
 import PageWrapper from "@components/PageWrapper";
 
-import type { UserPageProps } from "../../../[user]";
-import UserPage, { getServerSideProps as GSSUserPage } from "../../../[user]";
 import type { PageProps as TeamPageProps } from "../../../team/[slug]";
 import TeamPage, { getServerSideProps as GSSTeamPage } from "../../../team/[slug]";
+import type { UserPageProps } from "../../../user/[user]";
+import UserPage, { getServerSideProps as GSSUserPage } from "../../../user/[user]";
 
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   const team = await prisma.team.findFirst({

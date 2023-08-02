@@ -62,7 +62,7 @@ async function createUserAndEventType({
   });
 
   console.log(
-    `👤 Upserted '${user.username}' with email "${user.email}" & password "${user.password}". Booking page 👉 ${process.env.NEXT_PUBLIC_WEBAPP_URL}/${user.username}`
+    `👤 Upserted '${user.username}' with email "${user.email}" & password "${user.password}". Booking page 👉 ${process.env.NEXT_PUBLIC_WEBAPP_URL}/user/${user.username}`
   );
 
   for (const eventTypeInput of eventTypes) {
@@ -86,7 +86,7 @@ async function createUserAndEventType({
 
     if (eventType) {
       console.log(
-        `\t📆 Event type ${eventTypeData.slug} already seems seeded - ${process.env.NEXT_PUBLIC_WEBAPP_URL}/${user.username}/${eventTypeData.slug}`
+        `\t📆 Event type ${eventTypeData.slug} already seems seeded - ${process.env.NEXT_PUBLIC_WEBAPP_URL}/user/${user.username}/${eventTypeData.slug}`
       );
       continue;
     }
@@ -95,7 +95,7 @@ async function createUserAndEventType({
     });
 
     console.log(
-      `\t📆 Event type ${eventTypeData.slug} with id ${id}, length ${eventTypeData.length}min - ${process.env.NEXT_PUBLIC_WEBAPP_URL}/${user.username}/${eventTypeData.slug}`
+      `\t📆 Event type ${eventTypeData.slug} with id ${id}, length ${eventTypeData.length}min - ${process.env.NEXT_PUBLIC_WEBAPP_URL}/user/${user.username}/${eventTypeData.slug}`
     );
     for (const bookingInput of bookingFields) {
       await prisma.booking.create({

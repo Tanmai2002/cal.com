@@ -52,7 +52,7 @@ test.describe("Reschedule Tests", async () => {
       rescheduled: true,
     });
 
-    await page.goto(`/${user.username}/${user.eventTypes[0].slug}?rescheduleUid=${booking.uid}`);
+    await page.goto(`/user/${user.username}/${user.eventTypes[0].slug}?rescheduleUid=${booking.uid}`);
 
     await selectFirstAvailableTimeSlotNextMonth(page);
 
@@ -84,7 +84,7 @@ test.describe("Reschedule Tests", async () => {
       rescheduled: true,
     });
 
-    await page.goto(`/${user.username}/${eventType.slug}?rescheduleUid=${booking.uid}`);
+    await page.goto(`/user/${user.username}/${eventType.slug}?rescheduleUid=${booking.uid}`);
 
     await selectFirstAvailableTimeSlotNextMonth(page);
 
@@ -142,7 +142,7 @@ test.describe("Reschedule Tests", async () => {
       },
     });
     const payment = await payments.create(booking.id);
-    await page.goto(`/${user.username}/${eventType.slug}?rescheduleUid=${booking.uid}`);
+    await page.goto(`/user/${user.username}/${eventType.slug}?rescheduleUid=${booking.uid}`);
 
     await selectFirstAvailableTimeSlotNextMonth(page);
 
@@ -186,7 +186,7 @@ test.describe("Reschedule Tests", async () => {
       status: BookingStatus.ACCEPTED,
     });
 
-    await page.goto(`/${user.username}/${eventType.slug}?rescheduleUid=${booking.uid}`);
+    await page.goto(`/user/${user.username}/${eventType.slug}?rescheduleUid=${booking.uid}`);
 
     await selectFirstAvailableTimeSlotNextMonth(page);
 
@@ -208,7 +208,7 @@ test.describe("Reschedule Tests", async () => {
     });
     await user.apiLogin();
 
-    await page.goto(`/${user.username}/${eventType.slug}?rescheduleUid=${booking.uid}`);
+    await page.goto(`/user/${user.username}/${eventType.slug}?rescheduleUid=${booking.uid}`);
 
     await selectFirstAvailableTimeSlotNextMonth(page);
 

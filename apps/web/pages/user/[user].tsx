@@ -128,7 +128,7 @@ export function UserPage(props: InferGetServerSidePropsType<typeof getServerSide
                     <Link
                       prefetch={false}
                       href={{
-                        pathname: `/${user.username}/${type.slug}`,
+                        pathname: `/user/${user.username}/${type.slug}`,
                         query,
                       }}
                       passHref
@@ -293,7 +293,7 @@ export const getServerSideProps: GetServerSideProps<UserPageProps> = async (cont
 
   const users = usersWithoutAvatar.map((user) => ({
     ...user,
-    avatar: `/${user.username}/avatar.png`,
+    avatar: `${user.username}/avatar.png`,
   }));
 
   if (!users.length || (!isValidOrgDomain && !users.some((user) => user.organizationId === null))) {

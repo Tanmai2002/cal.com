@@ -38,7 +38,7 @@ test.describe("BOOKING_CREATED", async () => {
     expect(page.locator(`text='${webhookReceiver.url}'`)).toBeDefined();
 
     // --- Book the first available day next month in the pro user's "30min"-event
-    await page.goto(`/${user.username}/${eventType.slug}`);
+    await page.goto(`/user/${user.username}/${eventType.slug}`);
     await selectFirstAvailableTimeSlotNextMonth(page);
 
     // --- fill form
@@ -149,7 +149,7 @@ test.describe("BOOKING_REJECTED", async () => {
     const user = await users.create();
 
     // --- visit user page
-    await page.goto(`/${user.username}`);
+    await page.goto(`/user/${user.username}`);
 
     // --- book the user's event
     await bookOptinEvent(page);
@@ -296,7 +296,7 @@ test.describe("BOOKING_REQUESTED", async () => {
     expect(page.locator(`text='${webhookReceiver.url}'`)).toBeDefined();
 
     // --- visit user page
-    await page.goto(`/${user.username}`);
+    await page.goto(`/user/${user.username}`);
 
     // --- book the user's opt in
     await bookOptinEvent(page);

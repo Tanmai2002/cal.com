@@ -109,7 +109,7 @@ const Route = ({
     });
 
     group.eventTypes.forEach((eventType) => {
-      const uniqueSlug = `${group.profile.slug}/${eventType.slug}`;
+      const uniqueSlug = `user/${group.profile.slug}/${eventType.slug}`;
       const isRouteAlreadyInUse = isRouter(route) ? false : uniqueSlug === route.action.value;
 
       // If Event is already in use, we let it be so as to not break the existing setup

@@ -235,7 +235,7 @@ test.fixme("Integrations", () => {
         },
       });
 
-      await bookEvent(page, `${user.username}/${eventType.slug}`);
+      await bookEvent(page, `user/${user.username}/${eventType.slug}`);
       // Ensure that zoom was informed about the meeting
       // Verify that email had zoom link
       // POST https://api.zoom.us/v2/users/me/meetings

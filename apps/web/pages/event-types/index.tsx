@@ -179,7 +179,7 @@ const Item = ({ type, group, readOnly }: { type: EventType; group: EventTypeGrou
           <small
             className="text-subtle hidden font-normal leading-4 sm:inline"
             data-testid={"event-type-slug-" + type.id}>
-            {`/${group.profile.slug}/${type.slug}`}
+            {`/user/${group.profile.slug}/${type.slug}`}
           </small>
         ) : null}
         {readOnly && (
@@ -370,7 +370,7 @@ export const EventTypeList = ({ group, groupIndex, readOnly, types }: EventTypeL
     <div className="bg-default border-subtle mb-16 flex overflow-hidden rounded-md border">
       <ul ref={parent} className="divide-subtle !static w-full divide-y" data-testid="event-types">
         {types.map((type, index) => {
-          const embedLink = `${group.profile.slug}/${type.slug}`;
+          const embedLink = `user/${group.profile.slug}/${type.slug}`;
           const calLink = `${orgBranding?.fullDomain ?? CAL_URL}/${embedLink}`;
           const isManagedEventType = type.schedulingType === SchedulingType.MANAGED;
           const isChildrenManagedEventType =
@@ -422,7 +422,9 @@ export const EventTypeList = ({ group, groupIndex, readOnly, types }: EventTypeL
                             .flatMap((ch) => ch.users)
                             .map((user: Pick<User, "name" | "username">) => ({
                               alt: user.name || "",
-                              image: `${orgBranding?.fullDomain ?? WEBAPP_URL}/${user.username}/avatar.png`,
+                              image: `${orgBranding?.fullDomain ?? WEBAPP_URL}/user/${
+                                user.username
+                              }/avatar.png`,
                               title: user.name || "",
                             }))}
                         />

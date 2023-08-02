@@ -505,7 +505,7 @@ export async function bookAndPaidEvent(
   page: Page
 ) {
   // booking process with stripe integration
-  await page.goto(`${user.username}/${eventType?.slug}`);
+  await page.goto(`/user/${user.username}/${eventType?.slug}`);
   await selectFirstAvailableTimeSlotNextMonth(page);
   // --- fill form
   await page.fill('[name="name"]', "Stripe Stripeson");

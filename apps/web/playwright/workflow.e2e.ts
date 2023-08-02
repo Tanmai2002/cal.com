@@ -33,7 +33,7 @@ test.describe("Workflow tests", () => {
       await expect(page.locator('[data-testid="workflow-list"] > li')).toHaveCount(1);
 
       // book event type
-      await page.goto(`/${user.username}/${eventType.slug}`);
+      await page.goto(`/user/${user.username}/${eventType.slug}`);
       await selectSecondAvailableTimeSlotNextMonth(page);
 
       await page.fill('[name="name"]', "Test");

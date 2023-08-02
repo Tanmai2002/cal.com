@@ -13,7 +13,7 @@ test.afterEach(({ users }) => users.deleteAll());
 test.describe("Teams", () => {
   test("Can create teams via Wizard", async ({ page, users }) => {
     const user = await users.create();
-    const inviteeEmail = `${user.username}+invitee@example.com`;
+    const inviteeEmail = `/user/${user.username}+invitee@example.com`;
     await user.apiLogin();
     await page.goto("/teams");
 

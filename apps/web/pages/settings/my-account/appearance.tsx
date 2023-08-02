@@ -232,7 +232,7 @@ const AppearanceView = () => {
         color="secondary"
         EndIcon={ExternalLink}
         className="mt-6"
-        onClick={() => window.open(`${WEBAPP_URL}/${user.username}/${user.eventTypes[0].title}`, "_blank")}>
+        onClick={() => window.open(`${WEBAPP_URL}/user/${user.username}/${user.eventTypes[0].title}`, "_blank")}>
         Preview
       </Button> */}
       <hr className="border-subtle my-8 border" />
